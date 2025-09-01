@@ -1,0 +1,1 @@
+type ThreadCategory="Thread"|"QNA";
