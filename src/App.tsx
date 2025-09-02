@@ -1,10 +1,12 @@
 import './App.css'
+import CreateThreadButton from './component/CreateThreadButton'
 
 function App() {
 
   return (
     <>
       <h1>Discussion forum</h1>
+      <CreateThreadButton/>
       <div className="card">
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
