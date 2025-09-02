@@ -11,20 +11,31 @@ const datasets = {
 };
  
 /// /
-// Function to init localStorage with seeded dummydata
+// Function to init or update localStorage with seeded dummydata
 /// /
 export const initLocalStorage = () => {
   // Iterate through dataset entries
-  Object.entries(datasets).forEach(([key, value]) => {
-    // Check if dataset already exists in localStorage
-    if (!localStorage.getItem(key)) {
-      // Set as a JSON string under dataset key
-      localStorage.setItem(key, JSON.stringify(value));
-      // Log seeding action
-      console.log(`Seeded ${key} into localStorage`);
-    } else {
-      // Skip seeding if dataset is already present
-      console.log(`${key} already exists in localStorage`);
-    }
+  Object.entries(datasets).forEach(([key, newItems]) => {
+    
+    // Parse existing dataset, default to empty array if key not present
+    const existingItems: any[] = JSON.parse(localStorage.getItem(key) || "[]");
+    // Append new items that dont exist based on id
+    const mergedItems = [
+      ...existingItems,
+      ...newItems.filter(
+        (item: any) => !existingItems.some((existing) => existing.id === item.id)
+      ),
+    ];
+
+    // Save array back to localStorage
+    localStorage.setItem(key, JSON.stringify(mergedItems));
+
+    // Log what happened
+    console.log(
+      existingItems.length === 0
+        ? `Seeded '${key}' into localStorage`
+        : `Updated '${key}' with ${mergedItems.length - existingItems.length} new item(s)`
+    );
   });
 };
+

@@ -140,4 +140,11 @@ export const dummyComments: Comment[] = [
     creator: dummyUsers[1], 
     creationDate: new Date("2025-08-26T14:45:00Z") 
   },
+  {
+    id: 21,
+    thread: 2,
+    content: "Timing is crucial! Learn how to use a clicker so you make sure you reward the behavior you want.",
+    creator: dummyUsers[5],
+    creationDate: new Date("2025-08-26T14:45:00Z") 
+  }
 ];
