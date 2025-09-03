@@ -1,13 +1,12 @@
 import React from 'react'
-import type CreateThreadPage from './CreateThreadPage'
+
+import { Link, Router } from 'react-router-dom'
 
 export default function CreateThreadButton() {
-    
+  //link
   return (
-    <div></div>
-    //link
-    
-    //<a href=CreateThreadPage={Thread}>
-    //</a>
+    <div>
+    <Link to="/CreateThread">Create thread</Link>
+    </div>
   )
 }

@@ -38,7 +38,7 @@ export const initLocalStorage = () => {
     );
   });
 };
-type LSKey="@Thread/description"
+type LSKey="@Thread"
 
 class LocalStorageService {
     static setItem(key:LSKey,value:any) {

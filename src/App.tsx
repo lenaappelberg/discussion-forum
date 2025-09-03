@@ -1,3 +1,5 @@
+import './App.css'
+import CreateThreadPage from './component/CreateThreadPage'
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/home";
@@ -5,7 +7,7 @@ import LoginPage from "./pages/login";
 import ThreadPage from "./pages/threadDetail";
 import { CommentProvider } from "./context/commentContext";
 import { useEffect } from "react";
-import { initLocalStorage } from './utils/initLocalStorage';
+import { initLocalStorage } from './utils/localStorageService';
 
 
 function App() {
@@ -27,7 +29,8 @@ function App() {
 
           {/*   -- ThreadPage --  */}
           <Route path="/thread" element={<ThreadPage />} /> 
-
+          {/*CreateThreadPage*/  }
+          <Route path="/createthread" element={<CreateThreadPage/>}/>
         </Routes>
       </Router>
     </CommentProvider>

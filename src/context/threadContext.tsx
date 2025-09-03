@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import LocalStorageService from "../utils/initLocalStorage";
+import LocalStorageService from "../utils/localStorageService";
 
 type ThreadState= {
     Threads:Thread[];
@@ -31,21 +31,23 @@ type ThreadProviderProps={
 
 const ThreadContextProvider: React.FC<ThreadProviderProps>=({children})=>{
     //const [threads,setThread]=useState(initialState);
-    const [threads,setThread]=useState<Thread[]>([])
+    const [threads,setThreads]=useState<Thread[]>([])
     useEffect(()=>{
         _getThreads()
-
     },[])
-    useEffect(()=>{
-        setThread(threads)
+    /*useEffect(()=>{
+        setThreads(threads)
     },[])
+    /* useEffect(() => {
+        localStorage.setItem("@Threads", JSON.stringify(threads));
+      }, [threads]);*/
     const _getThreads = () => {
-        const _threads:Thread[] = LocalStorageService.getItem("@Thread/description",[])
-        setThread(_threads)
+        const _threads:Thread[] = LocalStorageService.getItem("@Thread",[])
+        setThreads(_threads)
     }
     const _setThreads = (_threads:Thread[])=>{
-        LocalStorageService.setItem("@Thread/description",_threads)
-        _setThreads(_threads)
+        LocalStorageService.setItem("@Thread",_threads)
+        setThreads(_threads)
     }
     const createThread:typeof initialState.actions.createThread = (thread) => {
         const updatedThreads=[ ...threads, thread]
