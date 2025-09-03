@@ -16,31 +16,20 @@ const initialState:ThreadState={
     }
 }
 
+
 const ThreadContext=createContext<ThreadState>(initialState)
-/*<{
-    state:ThreadState;
-    setState:React.Dispatch<React.SetStateAction<ThreadState>>;
-}>({
-    state:initialState,
-    setState:()=>{}
-})*/
 
 type ThreadProviderProps={
     children:React.ReactNode;
 }
 
 const ThreadContextProvider: React.FC<ThreadProviderProps>=({children})=>{
-    //const [threads,setThread]=useState(initialState);
+
     const [threads,setThreads]=useState<Thread[]>([])
     useEffect(()=>{
         _getThreads()
     },[])
-    /*useEffect(()=>{
-        setThreads(threads)
-    },[])
-    /* useEffect(() => {
-        localStorage.setItem("@Threads", JSON.stringify(threads));
-      }, [threads]);*/
+
     const _getThreads = () => {
         const _threads:Thread[] = LocalStorageService.getItem("@Thread",[])
         setThreads(_threads)
@@ -59,7 +48,7 @@ const ThreadContextProvider: React.FC<ThreadProviderProps>=({children})=>{
 
     return(
         <ThreadContext.Provider value={{
-            Threads:[],
+            Threads:threads,
             actions
         }}>
             {children}

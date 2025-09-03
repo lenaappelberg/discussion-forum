@@ -6,7 +6,6 @@ function HomePage() {
     <div>
       <h1>This is the home page</h1>
       <CreateThreadButton/>
-      <ThreadList threads={[]} />
     </div>
   );
 }

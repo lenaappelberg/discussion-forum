@@ -1,16 +1,17 @@
 import type { Thread } from "../types/types";
 
 
-interface ThreadDetailProps {
+interface ThreadItemProps {
   thread: Thread;
+  onSelect: (id: number) => void;
 }
 
-function ThreadItem({ thread }: ThreadDetailProps) {
+function ThreadItem({ thread, onSelect }: ThreadItemProps) {
   return (
-    <>
-      <h2>THREAD DETAIL</h2>
-      <p>{thread.title}</p>
-    </>
+   <div onClick={() => onSelect(thread.id)}>
+    <h3>{thread.title}</h3>
+    <p className="text-sm text-gray-600 truncate w-64">{thread.description}</p>
+   </div>
   );
 }
 

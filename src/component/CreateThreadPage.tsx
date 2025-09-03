@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useThread } from '../context/threadContext'
 import { dummyUsers } from '../dummy-data/users';
-import { Router, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import type { Thread } from '../types/types';
 
+/* 
 type Formdata={
     title:string;
     description:string;
-}
+} */
 interface FormElements extends HTMLFormControlsCollection {
   TitleInput: HTMLInputElement
 }
@@ -16,7 +18,8 @@ interface TitleFormElement extends HTMLFormElement {
 
 
 export default function CreateThreadPage() {
-    const {Threads,actions}=useThread()
+
+    const {actions}=useThread()
     const [title,settitle]=useState("");
     const [description,setdescription]=useState("");
     const creator=dummyUsers[1]
@@ -24,20 +27,20 @@ export default function CreateThreadPage() {
     function handleSubmit(event:React.FormEvent<TitleFormElement>) {
         event.preventDefault()
         const id =Math.floor(Math.random()*9000)
-        const creationdate=new Date().toDateString()
-        const category="Thread"
-        const _threads:Thread={
+        const creationDate=new Date();
+        const category="QNA"
+        const _thread:Thread={
           id,
           title,
           description,
-          creationdate,
+          creationDate,
           creator,
           category,
         }
-        actions.createThread(_threads)
+        actions.createThread(_thread)
         settitle("")
         setdescription("")
-        console.log("added",{_threads})
+        console.log("added",{_thread})
         navigate("/")
     }
   
