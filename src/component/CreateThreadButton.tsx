@@ -1,11 +1,13 @@
 import React from 'react'
+import type CreateThreadPage from './CreateThreadPage'
 
-export default function CreateThread() {
+export default function CreateThreadButton() {
     
   return (
+    <div></div>
     //link
-    <div>
-        <button>Skapa tråd</button>
-    </div>
+    
+    //<a href=CreateThreadPage={Thread}>
+    //</a>
   )
 }

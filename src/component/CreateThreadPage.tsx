@@ -1,21 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useThread } from '../context/threadContext'
+import { dummyUsers } from '../dummy-data/users';
 
 type Formdata={
     title:string;
     description:string;
 }
 interface FormElements extends HTMLFormControlsCollection {
-  usernameInput: HTMLInputElement
+  TitleInput: HTMLInputElement
 }
-interface UsernameFormElement extends HTMLFormElement {
+interface TitleFormElement extends HTMLFormElement {
   readonly elements: FormElements
 }
+
+
 export default function CreateThreadPage() {
-    const threads=useThread()
-    function handleSubmit(event:React.FormEvent<UsernameFormElement>) {
+    const {Threads,actions}=useThread()
+    const [title,settitle]=useState("");
+    const [description,setdescription]=useState("");
+    const creator=dummyUsers[1]
+    function handleSubmit(event:React.FormEvent<TitleFormElement>) {
         event.preventDefault()
-        //threads.
+        const id =Math.floor(Math.random()*9000)
+        const creationdate=new Date().toDateString()
+        const category="Thread"
+        const _threads:Thread={
+          id,
+          title,
+          description,
+          creationdate,
+          creator,
+          category,
+        }
+        actions.createThread
+        settitle("")
+        setdescription("")
+        console.log("added",{_threads})
     }
   
     
@@ -24,9 +44,20 @@ export default function CreateThreadPage() {
         <h1>Skapa tråd</h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="title">Title</label>
-            <input type="text" />
+            <input 
+             type="text"
+             value={title}
+             onChange={(e)=>{
+              settitle(e.target.value)
+             }}
+             />
             <label htmlFor="description">description</label>
-            <input type="text" />
+            <input type="text"
+             value={description}
+             onChange={(e)=>{
+              setdescription(e.target.value)
+             }}
+             />
             <button type="submit">Skapa</button>
         </form>
     </div>

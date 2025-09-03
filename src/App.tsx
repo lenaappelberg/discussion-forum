@@ -1,5 +1,6 @@
 import './App.css'
 import CreateThreadButton from './component/CreateThreadButton'
+import CreateThreadPage from './component/CreateThreadPage'
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <h1>Discussion forum</h1>
       <CreateThreadButton/>
+      <CreateThreadPage/>
       <div className="card">
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
