@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useThread } from '../context/threadContext'
 import { dummyUsers } from '../dummy-data/users';
+import { Router, useNavigate } from 'react-router-dom';
 
 type Formdata={
     title:string;
@@ -19,6 +20,7 @@ export default function CreateThreadPage() {
     const [title,settitle]=useState("");
     const [description,setdescription]=useState("");
     const creator=dummyUsers[1]
+    const navigate = useNavigate();
     function handleSubmit(event:React.FormEvent<TitleFormElement>) {
         event.preventDefault()
         const id =Math.floor(Math.random()*9000)
@@ -36,6 +38,7 @@ export default function CreateThreadPage() {
         settitle("")
         setdescription("")
         console.log("added",{_threads})
+        navigate("/")
     }
   
     

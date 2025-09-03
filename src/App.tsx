@@ -1,5 +1,4 @@
 import './App.css'
-import CreateThreadButton from './component/CreateThreadButton'
 import CreateThreadPage from './component/CreateThreadPage'
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -30,7 +29,8 @@ function App() {
 
           {/*   -- ThreadPage --  */}
           <Route path="/thread" element={<ThreadPage />} /> 
-
+          {/*CreateThreadPage*/  }
+          <Route path="/createthread" element={<CreateThreadPage/>}/>
         </Routes>
       </Router>
     </CommentProvider>
