@@ -8,7 +8,7 @@ import LoginPage from "./pages/login";
 import ThreadPage from "./pages/threadDetail";
 import { CommentProvider } from "./context/commentContext";
 import { useEffect } from "react";
-import { initLocalStorage } from './utils/LocalstorageService';
+import { initLocalStorage } from './utils/localStorageService';
 
 
 function App() {

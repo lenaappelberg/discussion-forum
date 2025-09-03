@@ -32,7 +32,7 @@ export default function CreateThreadPage() {
           creator,
           category,
         }
-        actions.createThread
+        actions.createThread(_threads)
         settitle("")
         setdescription("")
         console.log("added",{_threads})
