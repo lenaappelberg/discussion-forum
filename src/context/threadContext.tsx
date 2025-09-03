@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import LocalStorageService from "../utils/LocalstorageService";
+import LocalStorageService from "../utils/initLocalStorage";
 
 type ThreadState= {
     Threads:Thread[];
