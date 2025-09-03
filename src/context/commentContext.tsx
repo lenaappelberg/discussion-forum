@@ -2,7 +2,9 @@
 import type { Comment } from "../types/types";
 import type { CommentContextType } from "../types/contextTypes";
 // Import React hooks and types
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+// Import dummy data
+import { dummyComments } from "../dummy-data/comments";
 
 // Create new context for comments
 const CommentContext = createContext<CommentContextType | undefined>(undefined);
@@ -10,17 +12,29 @@ const CommentContext = createContext<CommentContextType | undefined>(undefined);
 // Define key from localStorage for comments
 const LOCAL_STORAGE_KEY = '@comments';
 
-// Define props type for the provider
-interface CommentProviderProps {
-  children: ReactNode;
-}
-
-export const CommentProvider: React.FC<CommentProviderProps> = ({ children }) => {
-  // Store list of comments, loads comments on first render
+// Define and export the CommentProvider component
+export const CommentProvider = ({ children }: { children: React.ReactNode }) => {
+  // Initialize comments from localStorage OR dummyComments
   const [comments, setComments] = useState<Comment[]>(() => {
-      const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-      return stored? JSON.parse(stored) : [];
+    // Try to load comments from localStorage
+    const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+    if (stored) {
+      // If stored, parse JSON and restore creationDate as Date objects
+      return JSON.parse(stored).map((c: any) => ({
+        ...c,
+        creationDate: new Date(c.creationDate),
+      }));
+    }
+
+    // Fallback with dummy comments if localstorage is empty
+    return dummyComments;
   });
+
+  // Save to localStorage whenever comments change
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(comments));
+  }, [comments]);
 
   /// /
   // Function to generate unique number id
@@ -56,19 +70,10 @@ export const CommentProvider: React.FC<CommentProviderProps> = ({ children }) =>
     setComments(prev => prev.filter(comment => comment.id !== id));
   };
 
-  /// /
-  // Save comment
-  /// /
-  const saveComment = () => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(comments));
-    console.log("Comments saved to localStorage");
-  };
-
   // Group actions
   const actions = {
     addComment,
     deleteComment,
-    saveComment
   }
 
   // Provide comments array and grouped actions to all child components

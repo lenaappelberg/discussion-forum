@@ -1,26 +1,31 @@
-// src/components/CommentForm.tsx
+// Imports
 import React, { useState } from "react";
-import type { Comment } from "../types/types";
-import { initLocalStorage } from "../utils/localStorageService";
+import { useComments } from "../context/commentContext";
 
-interface CommentFormProps {
-  onAdd: (commentData: Omit<Comment, "id" | "creationDate">) => void;
-}
 
-function CommentForm({ onAdd }: CommentFormProps) {
+// Define the CommentForm component
+function CommentForm() {
+  // Destructure actions from context
+  const { actions } = useComments();
+  // Local state for input field 
   const [content, setContent] = useState("");
 
+  /// /
+  // Handle form submission
+  /// /
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // If content is empty or just spaces do nothing
     if (!content.trim()) return;
 
-    // Example values for thread + creator
-    onAdd({
+    // Call addComment with required fields (in this case hardcoded example)
+    actions.addComment({
       content,
       thread: 1,
     });
 
-    initLocalStorage();
+    // Reset input field to empty after submit
     setContent("");
   };
 

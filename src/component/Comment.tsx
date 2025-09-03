@@ -7,7 +7,7 @@ interface CommentItemProps {
 function CommentItem({ comment }: CommentItemProps) {
   return (
     <li>
-      <strong>Anon</strong>: {comment.content}
+      <strong>{comment.creator?.userName || "Anon"}</strong>: {comment.content}
       <small style={{ marginLeft: "0.5rem" }}>
         {new Date(comment.creationDate).toLocaleString()}
       </small>

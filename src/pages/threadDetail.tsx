@@ -4,14 +4,14 @@ import { useComments } from "../context/commentContext";
 
 function ThreadPage() {
 
-  const { comments, actions } = useComments();
+  const { comments } = useComments();
 
   return (
     <div>
       <h1>THREAD PAGE</h1>
       <div>
         <h1>Comments</h1>
-        <CommentForm onAdd={actions.addComment} />
+        <CommentForm />
         <CommentList comments={comments} />
       </div>
     </div>
