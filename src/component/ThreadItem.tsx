@@ -9,7 +9,7 @@ function ThreadItem({ thread }: ThreadDetailProps) {
   return (
     <>
       <h2>THREAD DETAIL</h2>
-      <p>${thread.title}</p>
+      <p>{thread.title}</p>
     </>
   );
 }

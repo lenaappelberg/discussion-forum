@@ -2,6 +2,7 @@ import CommentForm from "../component/CommentForm";
 import CommentList from "../component/CommentList";
 import { useComments } from "../context/commentContext";
 
+
 function ThreadPage() {
 
   const { comments } = useComments();
