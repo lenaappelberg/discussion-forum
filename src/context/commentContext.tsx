@@ -56,10 +56,19 @@ export const CommentProvider: React.FC<CommentProviderProps> = ({ children }) =>
     setComments(prev => prev.filter(comment => comment.id !== id));
   };
 
+  /// /
+  // Save comment
+  /// /
+  const saveComment = () => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(comments));
+    console.log("Comments saved to localStorage");
+  };
+
   // Group actions
   const actions = {
     addComment,
-    deleteComment
+    deleteComment,
+    saveComment
   }
 
   // Provide comments array and grouped actions to all child components

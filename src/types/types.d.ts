@@ -32,6 +32,6 @@ export type Comment = {
 	id: number;
 	thread: number; // Reference to thread ID
 	content: string;
-	creator: User,
+	creator?: User,
   creationDate: Date;
 }
