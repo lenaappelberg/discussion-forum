@@ -1,3 +1,4 @@
+/* import { useThread } from "../context/threadContext"; */
 import type { Thread } from "../types/types";
 
 
@@ -6,13 +7,13 @@ interface ThreadDetailProps {
 }
 
 function ThreadDetail({ thread }: ThreadDetailProps) {
+
   return (
-    <>
-      <h2>THREAD DETAIL</h2>
-      <p>${thread.title}</p>
-      <p>${thread.description}</p>
-      <p>${thread.category}</p>
-    </>
+      <div>
+        <p>{thread.category}</p>
+        <h1>{thread.title}</h1>
+        <p>{thread.description}</p>
+      </div>
   );
 }
 

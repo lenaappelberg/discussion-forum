@@ -28,9 +28,11 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
 
           {/*   -- ThreadPage --  */}
-          <Route path="/thread" element={<ThreadPage />} /> 
+          <Route path="/thread/:threadId" element={<ThreadPage />} /> 
+
           {/*CreateThreadPage*/  }
-          <Route path="/createthread" element={<CreateThreadPage/>}/>
+          <Route path="/createthread" element={<CreateThreadPage/>} />
+
         </Routes>
       </Router>
     </CommentProvider>

@@ -8,9 +8,16 @@ interface ThreadItemProps {
 
 function ThreadItem({ thread, onSelect }: ThreadItemProps) {
   return (
-   <div onClick={() => onSelect(thread.id)}>
+   <div 
+    onClick={() => onSelect(thread.id)} 
+    style={{ 
+      background: "#5e5e5e",
+      padding: "1rem",
+      margin: "3rem"  
+    }}>
     <h3>{thread.title}</h3>
-    <p className="text-sm text-gray-600 truncate w-64">{thread.description}</p>
+    <p>{thread.description}</p>
+    <small>{thread.category}</small>
    </div>
   );
 }

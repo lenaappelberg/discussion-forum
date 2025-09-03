@@ -1,18 +1,27 @@
-import type { Thread } from "../types/types";
+import { useThread } from "../context/threadContext";
 import ThreadItem from "./ThreadItem";
 
-
-interface ThreadDetailProps {
-  threads: Thread[];
+interface ThreadListProps {
+  onSelect: (id: number) => void;
 }
 
-function ThreadList({ threads }: ThreadDetailProps) {
+function ThreadList({ onSelect }: ThreadListProps) {
+  const { Threads } = useThread();
+
+   if (Threads.length === 0) {
+    return <p className="text-gray-500">No threads yet</p>;
+  }
+
   return (
-    <ul>
-      {threads.map((thread) => (
-        <ThreadItem key={thread.id} thread={thread} />
+     <div >
+      {Threads.map((thread) => (
+        <ThreadItem
+          key={thread.id}
+          thread={thread}
+          onSelect={onSelect}
+        />
       ))}
-    </ul>
+    </div>
   );
 }
 
