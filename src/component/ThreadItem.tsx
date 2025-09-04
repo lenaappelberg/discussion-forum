@@ -12,7 +12,7 @@ function ThreadItem({ thread, onSelect }: ThreadItemProps) {
     onClick={() => onSelect(thread.id)} 
     style={{ 
       textAlign:"left",
-      background: "#5e5e5e",
+      background: "#479cc8",
       padding: "1rem",
       margin: "3rem",
       borderRadius:"16px",
