@@ -66,3 +66,26 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.formitem{
+  margin:1em;
+}
+.formlayout{
+  display: flex;
+  flex-direction: column;
+}
+.navbar{
+  display: flex;
+  flex-direction: row;
+}
+.navbar ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+.navbar a{
+  padding: 15px;
+}
+.right-navbar{
+  margin-left: 15em;
+}

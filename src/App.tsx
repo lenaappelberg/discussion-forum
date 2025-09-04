@@ -30,7 +30,7 @@ function App() {
           {/*   -- ThreadPage --  */}
           <Route path="/thread/:threadId" element={<ThreadPage />} /> 
 
-          {/*CreateThreadPage*/  }
+          {/*--CreateThreadPage--*/  }
           <Route path="/createthread" element={<CreateThreadPage/>} />
 
         </Routes>

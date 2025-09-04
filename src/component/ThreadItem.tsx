@@ -11,9 +11,11 @@ function ThreadItem({ thread, onSelect }: ThreadItemProps) {
    <div 
     onClick={() => onSelect(thread.id)} 
     style={{ 
+      textAlign:"left",
       background: "#5e5e5e",
       padding: "1rem",
-      margin: "3rem"  
+      margin: "3rem",
+      borderRadius:"16px",
     }}>
     <h3>{thread.title}</h3>
     <p>{thread.description}</p>

@@ -35,14 +35,14 @@ function CommentForm({ thread }:CommentFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
+    <form className="formlayout" onSubmit={handleSubmit}>
+      <textarea
+        className="formitem"
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Write a comment..."
       />
-      <button type="submit">Add Comment</button>
+      <button className="formitem" type="submit">Add Comment</button>
     </form>
   );
 }
