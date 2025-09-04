@@ -1,10 +1,15 @@
 // Imports
 import React, { useState } from "react";
 import { useComments } from "../context/commentContext";
+import type { Thread } from "../types/types";
+
+interface CommentFormProps {
+  thread: Thread; 
+}
 
 
 // Define the CommentForm component
-function CommentForm() {
+function CommentForm({ thread }:CommentFormProps) {
   // Destructure actions from context
   const { actions } = useComments();
   // Local state for input field 
@@ -22,7 +27,7 @@ function CommentForm() {
     // Call addComment with required fields (in this case hardcoded example)
     actions.addComment({
       content,
-      thread: 1,
+      thread,
     });
 
     // Reset input field to empty after submit

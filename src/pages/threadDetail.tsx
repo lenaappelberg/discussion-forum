@@ -6,6 +6,7 @@ import { useComments } from "../context/commentContext";
 import { useThread } from "../context/threadContext";
 
 
+
 function ThreadPage() {
   const { threadId } = useParams<{ threadId: string }>();
   const { Threads } = useThread();
@@ -13,20 +14,22 @@ function ThreadPage() {
 
   const thread = Threads.find(t => t.id === Number(threadId));
 
-  if (!Threads) return (
+  if (!thread) return (
     <div>
       <p className="text-red-500">Thread not found</p>
       <Link to="/">View all threads</Link>
     </div>
   )
 
+  const threadComments = comments.filter(c => c.thread.id === thread.id);
+
   return (
     <div>
       {thread && <ThreadDetail thread={thread} />}
       <div>
         <h3>Comments</h3>
-        <CommentForm />
-        <CommentList comments={comments} />
+        <CommentForm thread={thread}/>
+        <CommentList comments={threadComments} />
       </div>
     </div>
   );
