@@ -1,17 +1,19 @@
+// Import type
 import type { Thread } from "../types/types";
 
-
+// Define props for ThreadItem
 interface ThreadItemProps {
-  thread: Thread;
-  onSelect: (id: number) => void;
+  thread: Thread; // Single thread object
+  onSelect: (id: number) => void; // Callback that takes thread id
 }
 
+// Define ThreadItem component
 function ThreadItem({ thread, onSelect }: ThreadItemProps) {
   return (
    <div 
-    onClick={() => onSelect(thread.id)} 
+    onClick={() => onSelect(thread.id)} // When clicked, calls parent handler
     style={{ 
-      background: "#5e5e5e",
+      background: "#5e5e5e", // Temporary inline style
       padding: "1rem",
       margin: "3rem"  
     }}>
