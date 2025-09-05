@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import CreateThreadButton from "../component/CreateThreadButton";
 import ThreadList from "../component/ThreadList";
 import Navbar from "../component/Navbar";
 
@@ -15,7 +14,7 @@ function HomePage() {
   return (
     <div>
       <Navbar/>
-      <h1>This is the home page</h1>
+      <h1>Welcome to Dog Community</h1>
       <ThreadList onSelect={handleSelect}/>
     </div>
   );
