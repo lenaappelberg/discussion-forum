@@ -25,6 +25,7 @@ rgb
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  appearance: none;
 
   --border-radius: 1rem;
 
@@ -128,6 +129,9 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
 }
+
+/* Comment FORM */
+
 
 /* THREAD */
 .container-post {
