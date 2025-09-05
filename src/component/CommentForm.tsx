@@ -44,7 +44,7 @@ function CommentForm({ thread }:CommentFormProps) {
         onChange={(e) => setContent(e.target.value)}
         placeholder="Join the conversation"
       />
-      <button className="form-btn" type="submit">Add Comment</button>
+      <button className="btn form-btn" type="submit">Add Comment</button>
     </form>
   );
 }

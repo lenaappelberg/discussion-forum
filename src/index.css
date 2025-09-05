@@ -62,7 +62,7 @@ body {
 }
 
 /* --- BUTTONS --- */
-button {
+.btn {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -72,13 +72,11 @@ button {
   background-color: var(--primary);
   cursor: pointer;
   transition: border-color 0.25s;
+  color: var(--text);
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.btn:hover {
+  background-color: var(--secondary);
+  color: var(--text-soft);
 }
 
 /* USER */
@@ -93,6 +91,11 @@ button:focus-visible {
 .user-image {
   border-radius: 50%;
   max-width: 3rem;
+}
+
+svg.user-image {
+  color: var(--primary);
+  border: 1px solid var(--text-soft);
 }
 
 .user-info p {
@@ -135,12 +138,21 @@ button:focus-visible {
   flex-direction: column;
 }
 
+.form-btn {
+  max-width: 30%;
+  align-self: flex-end;
+}
+
 /* COMMENT */
 .comment-container {
   padding: 1.5rem;
   width: 50vw;
   margin: 2rem auto;
   border-radius: 1em;
+}
+
+.comment-content {
+  margin-top: 0;
 }
 
 
