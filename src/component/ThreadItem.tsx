@@ -15,7 +15,8 @@ function ThreadItem({ thread, onSelect }: ThreadItemProps) {
     style={{ 
       background: "#5e5e5e", // Temporary inline style
       padding: "1rem",
-      margin: "3rem"  
+      margin: "3rem",
+      borderRadius:"16px",
     }}>
     <h3>{thread.title}</h3>
     <p>{thread.description}</p>

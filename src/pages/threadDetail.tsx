@@ -41,6 +41,7 @@ function ThreadPage() {
         <h3>Comments</h3>
         <CommentForm thread={thread}/>
         <CommentList comments={threadComments} />
+        <Link to="/">View all threads</Link>
       </div>
     </div>
   );

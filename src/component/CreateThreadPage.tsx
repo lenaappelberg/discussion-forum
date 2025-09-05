@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useThread } from '../context/threadContext'
 import { dummyUsers } from '../dummy-data/users';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import type { Thread } from '../types/types';
 
 /* 
@@ -29,7 +29,7 @@ export default function CreateThreadPage() {
         event.preventDefault()
         const id =Math.floor(Math.random()*9000)
         const creationDate=new Date();
-        const category="QNA"
+        const category="BREEDS"
         const _thread:Thread={
           id,
           title,
@@ -48,24 +48,27 @@ export default function CreateThreadPage() {
     
   return (
     <div>
-        <h1>Skapa tråd</h1>
-        <form onSubmit={handleSubmit}>
+        <h1>Create Thread</h1>
+        <form className='formlayout' onSubmit={handleSubmit}>
             <label htmlFor="title">Title</label>
-            <input 
+            <input
+             className='formitem' 
              type="text"
              value={title}
              onChange={(e)=>{
               settitle(e.target.value)
              }}
              />
-            <label htmlFor="description">description</label>
-            <input type="text"
+            <label htmlFor="description">Description</label>
+            <textarea
+             className='formitem'
              value={description}
              onChange={(e)=>{
               setdescription(e.target.value)
              }}
              />
-            <button type="submit">Skapa</button>
+            <button className='formitem' type="submit">Skapa</button>
+            <Link to="/">View all threads</Link>
         </form>
     </div>
   )

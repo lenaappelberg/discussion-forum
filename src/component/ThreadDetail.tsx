@@ -10,10 +10,17 @@ interface ThreadDetailProps {
 function ThreadDetail({ thread }: ThreadDetailProps) {
 
   return (
-      <div>
-        <p>{thread.category}</p>
+      <div className="container-post flex">
+        <div className="flex thread-info">
+          <p>Category: {thread.category}</p>
+          <p>{new Date(thread.creationDate).toDateString()}</p>
+        </div>
         <h1>{thread.title}</h1>
-        <p>{thread.description}</p>
+        <p className="align-start">{thread.description}</p>
+        <div className="user-info flex align-end">
+          <img src={thread.creator.picture} alt="user profile picture" className="user-image"/>
+          <p>{thread.creator.userName}</p> 
+        </div>
       </div>
   );
 }
