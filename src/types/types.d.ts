@@ -30,7 +30,7 @@ export type QNAThread =  Thread & {
 // Comment type 
 export type Comment = {
 	id: number;
-	threadId: Pick<Thread, "id">;
+	threadId: Thread["id"];
 	content: string;
 	creator?: User,
   creationDate: Date;

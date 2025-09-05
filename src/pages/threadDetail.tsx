@@ -32,7 +32,7 @@ function ThreadPage() {
   )
 
   // Filter comments belonging to current threadId
-  const threadComments = comments.filter(c => c.thread.id === thread.id);
+  const threadComments = comments.filter(c => c.threadId === thread.id);
 
   return (
     <div>

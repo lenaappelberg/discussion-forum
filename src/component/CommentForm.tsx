@@ -28,7 +28,7 @@ function CommentForm({ thread }:CommentFormProps) {
     // Call addComment with required fields (in this case hardcoded example)
     actions.addComment({
       content,
-      thread,
+      threadId: thread.id,
     });
 
     // Reset input field to empty after submit
