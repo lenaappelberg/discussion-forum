@@ -1,14 +1,18 @@
+// Import navigation hook
 import { useNavigate } from "react-router-dom";
+// Import components
 import CreateThreadButton from "../component/CreateThreadButton";
 import ThreadList from "../component/ThreadList";
 import Navbar from "../component/Navbar";
 
+// Define HomePage component
 function HomePage() {
-
+  // Get navigate function
   const navigate = useNavigate();
 
-  // This function will be called when a thread is clicked
+   // Function called when a thread is clicked in ThreadList
   const handleSelect = (id: number) => {
+    // Navigate to thread detail page with the clicked thread's id
     navigate(`/thread/${id}`);
   };
 

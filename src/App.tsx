@@ -1,17 +1,21 @@
-import './App.css'
-import CreateThreadPage from './component/CreateThreadPage'
-import "./App.css";
+// Import React and React router hooks and components
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+// Import Page components
+import CreateThreadPage from './component/CreateThreadPage'
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
 import ThreadPage from "./pages/threadDetail";
+// Import styling
+import "./App.css";
+// Import conext
 import { CommentProvider } from "./context/commentContext";
-import { useEffect } from "react";
+// Import localStorage logic
 import { initLocalStorage } from './utils/localStorageService';
 
 
 function App() {
-  // Seed localStorage when React mountss
+  // Seed localStorage when React mounts
   useEffect(() => {
     initLocalStorage(); 
   }, []);

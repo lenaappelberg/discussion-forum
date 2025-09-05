@@ -10,7 +10,7 @@ import { ThreadContextProvider } from './context/threadContext.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThreadContextProvider>
-    <App />
+      <App />
     </ThreadContextProvider>
   </StrictMode>,
 )

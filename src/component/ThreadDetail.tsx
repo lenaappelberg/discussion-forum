@@ -1,11 +1,12 @@
-/* import { useThread } from "../context/threadContext"; */
+// Import type
 import type { Thread } from "../types/types";
 
-
+// Define props for ThreadDetail
 interface ThreadDetailProps {
   thread: Thread;
 }
 
+// Define ThreadDetail component
 function ThreadDetail({ thread }: ThreadDetailProps) {
 
   return (
