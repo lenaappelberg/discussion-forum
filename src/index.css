@@ -83,7 +83,6 @@ button:focus-visible {
 
 /* USER */
 .user-info {
-  background-color: var(--primary);
   border-radius: var(--border-radius);
   padding: 0.5rem;
   align-items: center;
@@ -122,25 +121,35 @@ button:focus-visible {
 }
 
 /* FORM */
-.formitem{
-  margin:1em;
+.form-input{
+  padding: 1rem 0rem 0rem 1rem;
+  margin-block: 1rem;
+  box-shadow: none;
+  min-height: 100px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--text);
 }
+
 .formlayout{
   display: flex;
   flex-direction: column;
 }
 
-/* Comment FORM */
+/* COMMENT */
+.comment-container {
+  padding: 1.5rem;
+  width: 50vw;
+  margin: 2rem auto;
+  border-radius: 1em;
+}
 
 
 /* THREAD */
 .container-post {
-  background-color: var(--secondary);
   padding: 1.5rem;
   width: 50vw;
   margin: 0 auto;
   border-radius: 1em;
-  flex-direction: column;
 }
 
 .container-post h1 {
@@ -175,6 +184,22 @@ button:focus-visible {
   align-self: flex-end;
 }
 
+.flex-col {
+    flex-direction: column;
+}
+
+.background-primary {
+  background-color: var(--primary);
+}
+
+.background-secondary {
+  background-color: var(--secondary);
+}
+
+.background-gray-200 {
+  background-color: oklch(94.827% 0.00756 260.887);
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -187,12 +212,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-
-textarea{
-  background-color: #479cc8;
-}
-input{
-  background-color: #479cc8;
 }

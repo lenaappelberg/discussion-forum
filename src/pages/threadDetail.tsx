@@ -38,9 +38,8 @@ function ThreadPage() {
     <div>
       {thread && <ThreadDetail thread={thread} />}
       <div>
-        <h3>Comments</h3>
-        <CommentForm thread={thread}/>
         <CommentList comments={threadComments} />
+        <CommentForm thread={thread}/>
         <Link to="/">View all threads</Link>
       </div>
     </div>

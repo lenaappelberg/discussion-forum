@@ -13,12 +13,12 @@ function CommentList({ comments }: CommentListProps) {
   if (comments.length === 0) return <p>Be the first to comment!</p>;
 
   return (
-    <ul>
+    <div>
       {/* Render CommentItem for each comment in Comment array */}
       {comments.map((comment) => (
         <CommentItem key={comment.id} comment={comment} />
       ))}
-    </ul>
+    </div>
   );
 }
 

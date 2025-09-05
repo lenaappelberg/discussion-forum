@@ -38,13 +38,13 @@ function CommentForm({ thread }:CommentFormProps) {
 
   return (
     <form className="formlayout comment-form" onSubmit={handleSubmit}>
-      <input
-        className="formitem"
+      <textarea
+        className="form-input flex"
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Join the conversation"
       />
-      <button className="formitem" type="submit">Add Comment</button>
+      <button className="form-btn" type="submit">Add Comment</button>
     </form>
   );
 }
