@@ -1,7 +1,6 @@
 // Import navigation hook
 import { useNavigate } from "react-router-dom";
 // Import components
-import CreateThreadButton from "../component/CreateThreadButton";
 import ThreadList from "../component/ThreadList";
 import Navbar from "../component/Navbar";
 
@@ -18,8 +17,6 @@ function HomePage() {
 
   return (
     <div>
-      <Navbar/>
-      <h1>Welcome to Dog Community</h1>
       <Navbar/>
       <h1>Welcome to Dog Community</h1>
       <ThreadList onSelect={handleSelect}/>

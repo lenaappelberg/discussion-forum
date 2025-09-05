@@ -1,7 +1,5 @@
 // Import
 import type { Comment } from "../types/types";
-// Import user icon
-import userIcon from "../assets/user-circle-svgrepo-com (1).svg"
 
 // Define props for CommentItem
 interface CommentItemProps {
