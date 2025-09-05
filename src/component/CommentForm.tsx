@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useComments } from "../context/commentContext";
 import type { Thread } from "../types/types";
 
+// Define props for CommentForm
 interface CommentFormProps {
   thread: Thread; 
 }
@@ -32,15 +33,16 @@ function CommentForm({ thread }:CommentFormProps) {
 
     // Reset input field to empty after submit
     setContent("");
+    
   };
 
   return (
-    <form className="formlayout" onSubmit={handleSubmit}>
-      <textarea
+    <form className="formlayout comment-form" onSubmit={handleSubmit}>
+      <input
         className="formitem"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="Write a comment..."
+        placeholder="Join the conversation"
       />
       <button className="formitem" type="submit">Add Comment</button>
     </form>

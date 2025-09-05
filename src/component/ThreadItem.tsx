@@ -10,9 +10,7 @@ interface ThreadItemProps {
 // Define ThreadItem component
 function ThreadItem({ thread, onSelect }: ThreadItemProps) {
   return (
-   <div 
-    onClick={() => onSelect(thread.id)} // When clicked, calls parent handler
-   >
+   <div onClick={() => onSelect(thread.id)}> 
     <h3>{thread.title}</h3>
     <p>{thread.description}</p>
     <small>{thread.category}</small>

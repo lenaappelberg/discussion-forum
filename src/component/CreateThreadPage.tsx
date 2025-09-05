@@ -29,7 +29,7 @@ export default function CreateThreadPage() {
         event.preventDefault()
         const id =Math.floor(Math.random()*9000)
         const creationDate=new Date();
-        const category="Thread"
+        const category="BREEDS"
         const _thread:Thread={
           id,
           title,
