@@ -20,6 +20,8 @@ function HomePage() {
     <div>
       <Navbar/>
       <h1>Welcome to Dog Community</h1>
+      <Navbar/>
+      <h1>Welcome to Dog Community</h1>
       <ThreadList onSelect={handleSelect}/>
     </div>
   );
