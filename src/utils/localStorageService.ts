@@ -39,8 +39,9 @@ export const initLocalStorage = () => {
   });
 };
 type LSKey="@Thread"
+type LSKeyuser="@User"
 
-class LocalStorageService {
+export class LocalStorageServiceThread {
     static setItem(key:LSKey,value:any) {
         const data= JSON.stringify(value)
         localStorage.setItem(key,data)
@@ -53,5 +54,18 @@ class LocalStorageService {
         return fallbackValue||null
     }
 }
+//refactorlocalstorageservice
+export class LocalStorageServiceUser {
+    static setItem(key:LSKeyuser,value:any) {
+        const data= JSON.stringify(value)
+        localStorage.setItem(key,data)
+    }
+    static getItem(key:LSKey,fallbackValue?:any):any{
+        const jsonData=localStorage.getItem(key)
+        if (jsonData) {
+            return JSON.parse(jsonData)
+        }
+        return fallbackValue||null
+    }
+}
 
-export default LocalStorageService

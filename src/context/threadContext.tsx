@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import LocalStorageService from "../utils/localStorageService";
+import {LocalStorageServiceThread} from "../utils/localStorageService";
 import type { Thread } from '../types/types';
 
 type ThreadState= {
@@ -32,11 +32,11 @@ const ThreadContextProvider: React.FC<ThreadProviderProps>=({children})=>{
     },[])
 
     const _getThreads = () => {
-        const _threads:Thread[] = LocalStorageService.getItem("@Thread",[])
+        const _threads:Thread[] = LocalStorageServiceThread.getItem("@Thread",[])
         setThreads(_threads)
     }
     const _setThreads = (_threads:Thread[])=>{
-        LocalStorageService.setItem("@Thread",_threads)
+        LocalStorageServiceThread.setItem("@Thread",_threads)
         setThreads(_threads)
     }
     const createThread:typeof initialState.actions.createThread = (thread) => {
@@ -46,6 +46,9 @@ const ThreadContextProvider: React.FC<ThreadProviderProps>=({children})=>{
     const actions :typeof initialState.actions={
         createThread
     }
+    /*const categorizeThread =(threadcategory)=>{
+        constupatedcategory=[...threads,threadcategory]
+    }*/
 
     return(
         <ThreadContext.Provider value={{
