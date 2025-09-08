@@ -47,29 +47,33 @@ export default function CreateThreadPage() {
   
     
   return (
-    <div>
+    <div className='thread-form'>
         <h1>Create Thread</h1>
         <form className='formlayout' onSubmit={handleSubmit}>
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title" className='form-label align-start'>Title</label>
             <input
-             className='formitem' 
+             className='form-input'
+             placeholder='Enter title here' 
              type="text"
              value={title}
              onChange={(e)=>{
               settitle(e.target.value)
              }}
              />
-            <label htmlFor="description">Description</label>
+            <label htmlFor="description" className='form-label align-start'>Description</label>
             <textarea
-             className='formitem'
+             className='textarea-input'
+             placeholder='Enter text here'
              value={description}
              onChange={(e)=>{
               setdescription(e.target.value)
              }}
              />
-            <button className='formitem' type="submit">Skapa</button>
-            <Link to="/">View all threads</Link>
-        </form>
+            <div className='btn-group'>
+              <button className='btn' type="submit">Create!</button>
+              <Link to="/" className='btn background-secondary'>View all threads</Link>
+            </div>
+          </form>
     </div>
   )
 }

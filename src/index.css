@@ -79,6 +79,47 @@ body {
   color: var(--text-soft);
 }
 
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* CREATE THREAD */
+.thread-form {
+  margin: 1rem auto;
+  background-color:color-mix(in srgb, var(--secondary), transparent 50%);
+  width: 70vw;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+}
+
+.thread-form h1 {
+  font-size: 2rem;
+  text-align: start;
+  margin-bottom: 0;
+}
+
+.thread-info {
+  justify-content: space-between;
+  color: color-mix(in srgb, var(--text), transparent 50%);
+  font-size: 0.8rem;
+}
+
+.thread-form .btn {
+  background-color: var(--primary);
+  padding: 1rem;
+}
+
+.btn-group .background-secondary {
+  background-color: var(--secondary);
+  border: 1px solid var(--primary);
+}
+
+.thread-form .btn-group {
+ margin-top: 1.5rem;
+}
+
 /* USER */
 .user-info {
   border-radius: var(--border-radius);
@@ -124,18 +165,33 @@ svg.user-image {
 }
 
 /* FORM */
-.form-input{
-  padding: 1rem 0rem 0rem 1rem;
-  margin-block: 1rem;
+.textarea-input{
+  padding: 1rem;
+  margin-bottom: 1rem;
   box-shadow: none;
   min-height: 100px;
   border-radius: var(--border-radius);
+  border: 1px solid var(--text);
+  resize: none;
+  font-size: 1rem;
+}
+
+.form-input {
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  font-size: 1rem;
   border: 1px solid var(--text);
 }
 
 .formlayout{
   display: flex;
   flex-direction: column;
+}
+
+.form-label {
+  font-size: 1rem;
+  margin-block: 2rem 0.5rem;
+
 }
 
 .form-btn {
@@ -160,7 +216,7 @@ svg.user-image {
 .container-post {
   padding: 1.5rem;
   width: 50vw;
-  margin: 0 auto;
+  margin: 1rem auto;
   border-radius: 1em;
 }
 
@@ -176,11 +232,7 @@ svg.user-image {
   margin: 0;
 }
 
-.thread-info {
-  justify-content: space-between;
-  color: color-mix(in srgb, var(--text), transparent 50%);
-  font-size: 0.8rem;
-}
+
 
 
 /* UTILITY */

@@ -39,7 +39,7 @@ function CommentForm({ thread }:CommentFormProps) {
   return (
     <form className="formlayout comment-form" onSubmit={handleSubmit}>
       <textarea
-        className="form-input flex"
+        className="textarea-input flex"
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Join the conversation"
