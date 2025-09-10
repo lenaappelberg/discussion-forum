@@ -8,7 +8,7 @@ export type User = {
 }
 
 // Allowed thread categories
-export type ThreadCategory = "QNA" | "BREEDS" | "HEALTH AND FOOD" | "TRAINING AND BEHAVIOR"|"Thread";
+export type ThreadCategory = "QNA" | "BREEDS" | "HEALTH AND FOOD" | "TRAINING AND BEHAVIOR"|"Thread"|"LOCKED";
 
 // Base thread type for forum discussions
 export type Thread = {
