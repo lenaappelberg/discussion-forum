@@ -1,5 +1,6 @@
 // Import type
 import type { Thread } from "../types/types";
+import Lockbutton from "./lockbutton";
 
 // Define props for ThreadItem
 interface ThreadItemProps {
@@ -9,11 +10,19 @@ interface ThreadItemProps {
 
 // Define ThreadItem component
 function ThreadItem({ thread, onSelect }: ThreadItemProps) {
+  function accessthread() {
+    if (thread.category === "Thread" ||"QNA") {
+      onSelect(thread.id)
+    }
+  }
   return (
-   <div onClick={() => onSelect(thread.id)}> 
+   <div> 
+    <div onClick={accessthread}>
     <h3>{thread.title}</h3>
     <p>{thread.description}</p>
     <small>{thread.category}</small>
+    </div>
+    <Lockbutton {...thread}/>
    </div>
   );
 }

@@ -46,10 +46,6 @@ const ThreadContextProvider: React.FC<ThreadProviderProps>=({children})=>{
     const actions :typeof initialState.actions={
         createThread
     }
-    /*const categorizeThread =(threadcategory)=>{
-        constupatedcategory=[...threads,threadcategory]
-    }*/
-
     return(
         <ThreadContext.Provider value={{
             Threads:threads,

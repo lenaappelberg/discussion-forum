@@ -1,5 +1,6 @@
 // Imports
 import { useThread } from "../context/threadContext";
+import Lockbutton from "./lockbutton";
 import ThreadItem from "./ThreadItem";
 
 // Define props for ThreadList
@@ -24,7 +25,7 @@ function ThreadList({ onSelect }: ThreadListProps) {
         <ThreadItem
           key={thread.id}
           thread={thread}
-          onSelect={onSelect} // Pass down callback
+          onSelect={onSelect} // Pass down callback 
         />
       ))}
     </div>

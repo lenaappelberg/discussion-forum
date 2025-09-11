@@ -7,13 +7,17 @@ type UserState= {
     selectedUserId?:number;
     actions: {
         createUser:(user:User)=>void
+        login:(user:User)=>void
+        logout:(user:User)=>void
     }
 }
 
 const initialState:UserState={
     Users:[],
     actions:{
-        createUser:()=>{}
+        createUser:()=>{},
+        login:()=>{},
+        logout:()=>{}
     }
 }
 
@@ -42,8 +46,18 @@ const UserContextProvider: React.FC<UserProviderProps> = ({children})=>{
         const updatedUsers=[ ...users, user]
         _setUsers(updatedUsers)
     }
+    const login:typeof initialState.actions.createUser = (user) => {
+        const updatedUsers=[ ...users, user]
+        _setUsers(updatedUsers)
+    }
+    const logout:typeof initialState.actions.createUser = (user) => {
+        const updatedUsers=[ ...users, user]
+        _setUsers(updatedUsers)
+    }
     const actions :typeof initialState.actions={
-        createUser
+        createUser,
+        login,
+        logout
     }
     return(
         <div>

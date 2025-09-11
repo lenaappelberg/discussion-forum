@@ -1,10 +1,7 @@
 // User type for forum users
 export type User = {
-  id: string; // Unique identifier
   userName: string;
-  email: string;
 	password: string; // Dummy password for testing. In production, always store hashed & salted passwords, never raw strings
-  picture: string;
 }
 
 // Allowed thread categories

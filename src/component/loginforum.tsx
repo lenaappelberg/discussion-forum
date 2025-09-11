@@ -3,17 +3,18 @@ import { useUser } from '../context/usercontext'
 import type { User } from '../types/types'
 import { Link } from 'react-router-dom'
 
-export default function Register() {
-  const {actions}=useUser()
-  const [userName,setuserName]=useState("")
-  const [password,setpassword]=useState("")
-  function handlesubmit () {
-  const _user:User={
+export default function Loginforum() {
+    const {Users,actions}=useUser()
+    //const _user=Users[]
+    const [userName,setuserName]=useState("")
+    const [password,setpassword]=useState("")
+    function handlesubmit(){
+    const _user:User={
           userName,
           password
-          }
-          actions.createUser(_user)
-          }
+    }
+    actions.createUser(_user)
+    }
   return (
     <div>
         <form className='formlayout' onSubmit={handlesubmit}>
@@ -35,7 +36,7 @@ export default function Register() {
               setpassword(e.target.value)
              }}
              />
-             <button type="submit">register</button>
+             <button type="submit">Log in</button>
              <Link to="/" className='btn background-secondary'>Back to home</Link>
         </form>
     </div>

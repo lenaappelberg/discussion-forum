@@ -12,6 +12,7 @@ import "./App.css";
 import { CommentProvider } from "./context/commentContext";
 // Import localStorage logic
 import { initLocalStorage } from './utils/localStorageService';
+import Register from "./component/register";
 
 
 function App() {
@@ -36,7 +37,8 @@ function App() {
 
           {/*--CreateThreadPage--*/  }
           <Route path="/createthread" element={<CreateThreadPage/>} />
-
+          {/*--Register--*/}
+          <Route path="/Register" element={<Register/>}/>
         </Routes>
       </Router>
     </CommentProvider>

@@ -14,7 +14,7 @@ export const dummyThreads: (Thread | QNAThread )[] = [
   {
     id: 1,
     title: "Welcome to the forum!",
-    category: "GENERAL",
+    category: "Thread",
     creationDate: new Date("2025-08-25T10:30:00Z"),
     description: "Introduce yourself and say hi to everyone",
     creator: getRandomUser(),
