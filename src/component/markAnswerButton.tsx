@@ -1,7 +1,14 @@
 import React from 'react'
 
 export default function MarkAnswerButton() {
+  function clickHandler() {
+    
+  }
   return (
-    <div>markAnswerButton</div>
+    <div>
+      <button>
+        Answer this question
+      </button>
+    </div>
   )
 }

@@ -7,13 +7,15 @@ type ThreadState= {
     selectedThreadId?:number;
     actions: {
         createThread:(thread:Thread)=>void
+        LockThread:(thread:Thread)=>void
     }
 }
 
 const initialState:ThreadState={
     Threads:[],
     actions:{
-        createThread:()=>{}
+        createThread:()=>{},
+        LockThread:()=>{}
     }
 }
 
@@ -43,8 +45,13 @@ const ThreadContextProvider: React.FC<ThreadProviderProps>=({children})=>{
         const updatedThreads=[ ...threads, thread]
         _setThreads(updatedThreads)
     }
+    const LockThread:typeof initialState.actions.LockThread = (thread:Thread) => {
+        thread.category="LOCKED"
+        _setThreads(thread)
+    }
     const actions :typeof initialState.actions={
-        createThread
+        createThread,
+        LockThread
     }
     return(
         <ThreadContext.Provider value={{

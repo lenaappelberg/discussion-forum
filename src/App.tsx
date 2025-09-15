@@ -13,6 +13,7 @@ import { CommentProvider } from "./context/commentContext";
 // Import localStorage logic
 import { initLocalStorage } from './utils/localStorageService';
 import Register from "./component/register";
+import { UserContext } from "./context/usercontext";
 
 
 function App() {
@@ -20,8 +21,10 @@ function App() {
   useEffect(() => {
     initLocalStorage(); 
   }, []);
-  
+  //usercontext.consumer put in create comment and thread
   return (
+    <UserContext.Consumer>
+      {({selectedUserId})=>
     <CommentProvider>
       <Router>
         <Routes>
@@ -42,6 +45,8 @@ function App() {
         </Routes>
       </Router>
     </CommentProvider>
+    }
+    </UserContext.Consumer>
   );
 }
 

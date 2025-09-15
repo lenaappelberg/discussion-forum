@@ -33,7 +33,10 @@ const UserContextProvider: React.FC<UserProviderProps> = ({children})=>{
     useEffect(()=>{
         _getUsers()
     },[])
-
+    useEffect(() => {
+      _setUsers(users)
+    }, [users])
+    
     const _getUsers = () => {
         const _users:User[] = LocalStorageServiceUser.getItem("@Thread",[])
         setUsers(_users)
@@ -61,7 +64,7 @@ const UserContextProvider: React.FC<UserProviderProps> = ({children})=>{
     }
     return(
         <div>
-            <UserContext.Provider value={{Users:users,actions}}>
+            <UserContext.Provider value={{Users:users,actions,}}>
                 {children}
             </UserContext.Provider>
         </div>
@@ -76,5 +79,6 @@ const useUser=()=>{
 }
 export{
     UserContextProvider,
-    useUser
+    useUser,
+    UserContext
 }
